@@ -1,4 +1,3 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:phl_shoe_stores/widgets/drop_down_btn.dart';
 
@@ -69,12 +68,34 @@ class AddProductPage extends StatelessWidget {
               SizedBox(height: 10),
               Row(
                 children: [
-                  Flexible(child: DropDownBtn()),
-                  Flexible(child: DropDownBtn()),
+                  Flexible(
+                      child: DropDownBtn(
+                    items: ["Cate1", "Cate2", "Cate3"],
+                    selectedItemText: "Category 1",
+                    onSelected: (selectedValue) {},
+                  )),
+                  Flexible(
+                      child: DropDownBtn(
+                    items: ["Brand1", "Brand2", "Brand3"],
+                    selectedItemText: "Brand 1",
+                    onSelected: (selectedValue) {},
+                  )),
                 ],
               ),
               Text("Offer Product ?"),
-              DropDownBtn(),
+              DropDownBtn(
+                items: ["True", "False"],
+                selectedItemText: "Offer ?",
+                onSelected: (selectedValue) {},
+              ),
+              SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("Add Product"),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.indigoAccent,
+                    foregroundColor: Colors.white),
+              ),
             ],
           ),
         ),
