@@ -1,8 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:phl_shoe_stores/controller/home_controller.dart';
+import 'package:phl_shoe_stores/firebase_options.dart';
 import 'package:phl_shoe_stores/pages/home_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // registering my controller
+  Get.put(HomeController());
   runApp(const MyApp());
 }
 
