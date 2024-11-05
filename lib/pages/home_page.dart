@@ -12,7 +12,11 @@ class HomePage extends StatelessWidget {
       builder: (ctrl) {
         return Scaffold(
             appBar: AppBar(
-              title: Text('Footware Admin'),
+              title: Text(
+                'Footwear Admin',
+                style: TextStyle(fontSize: 40),
+              ),
+              backgroundColor: Theme.of(context).colorScheme.inversePrimary,
             ),
             body: ListView.builder(
               itemCount: ctrl.products.length,
