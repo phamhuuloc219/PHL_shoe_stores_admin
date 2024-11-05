@@ -15,9 +15,12 @@ class HomeController extends GetxController {
   String brand = 'un brand';
   bool offer = false;
 
+  List<Product> products = [];
+
   @override
-  void onInit() {
+  void onInit() async {
     productCollection = firestore.collection('products');
+    await fetchProduct();
     super.onInit();
   }
 
@@ -38,9 +41,53 @@ class HomeController extends GetxController {
       doc.set(productJson);
       Get.snackbar("Success", 'Product added successfully!',
           colorText: Colors.green);
+
+      setValuesDefault();
     } on Exception catch (e) {
-      Get.snackbar("Error", e.toString(), colorText: Colors.green);
+      Get.snackbar("Error", e.toString(), colorText: Colors.red);
       print(e);
     }
+  }
+
+  fetchProduct() async {
+    try {
+      QuerySnapshot productSnapshot = await productCollection.get();
+      final List<Product> retrievedProducts = productSnapshot.docs
+          .map((doc) => Product.fromJson(doc.data() as Map<String, dynamic>))
+          .toList();
+      products.clear();
+      products.assignAll(retrievedProducts);
+      Get.snackbar("Success", "Products fetched successfully",
+          colorText: Colors.green);
+    } on Exception catch (e) {
+      Get.snackbar("Error", e.toString(), colorText: Colors.red);
+      print(e);
+    } finally {
+      update();
+    }
+  }
+
+  deleteProduct(String id) async {
+    try {
+      await productCollection.doc(id).delete();
+      fetchProduct();
+      Get.snackbar("Success", "Products deleted successfully",
+          colorText: Colors.green);
+    } on Exception catch (e) {
+      Get.snackbar("Success", e.toString(), colorText: Colors.red);
+      print(e);
+    }
+  }
+
+  setValuesDefault() {
+    productNameCtrl.clear();
+    productDescriptionCtrl.clear();
+    productImageCtrl.clear();
+    productPriceCtrl.clear();
+
+    category = 'general';
+    brand = 'un brand';
+    offer = false;
+    update();
   }
 }
