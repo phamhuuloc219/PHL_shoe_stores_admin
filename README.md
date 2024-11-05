@@ -7,5 +7,5 @@
 <br>
 
 ###### Used to run the build_runner tool in the Flutter project, generating new code and removing duplicate output files if any.
-#run to build the part 'product.g.dart';
- flutter pub run build_runner build --delete-conflicting-outputs 
+# run to build the part 'product.g.dart'; in file product.dart
+<br>flutter pub run build_runner build --delete-conflicting-outputs 
