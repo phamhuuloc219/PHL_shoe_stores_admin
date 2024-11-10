@@ -11,8 +11,8 @@ class HomeController extends GetxController {
   TextEditingController productImageCtrl = TextEditingController();
   TextEditingController productPriceCtrl = TextEditingController();
 
-  String category = 'general';
-  String brand = 'un brand';
+  String category = 'General';
+  String brand = 'Un brand';
   bool offer = false;
 
   List<Product> products = [];
@@ -85,8 +85,8 @@ class HomeController extends GetxController {
     productImageCtrl.clear();
     productPriceCtrl.clear();
 
-    category = 'general';
-    brand = 'un brand';
+    category = 'General';
+    brand = 'Un brand';
     offer = false;
     update();
   }

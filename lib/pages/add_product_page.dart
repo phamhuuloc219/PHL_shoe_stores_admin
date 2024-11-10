@@ -79,15 +79,14 @@ class AddProductPage extends StatelessWidget {
                         child: DropDownBtn(
                       items: const [
                         "Boots",
-                        "Shoe",
-                        "Beach Shoe",
-                        "High heels",
-                        "Slippers",
-                        "Sandal"
+                        "Sneakers",
+                        "Sandals",
+                        "Derby shoe",
+                        "Opanak"
                       ],
                       selectedItemText: ctrl.category,
                       onSelected: (selectedValue) {
-                        ctrl.category = selectedValue ?? "general";
+                        ctrl.category = selectedValue ?? "General";
                         ctrl.update();
                       },
                     )),
@@ -102,7 +101,7 @@ class AddProductPage extends StatelessWidget {
                       ],
                       selectedItemText: ctrl.brand,
                       onSelected: (selectedValue) {
-                        ctrl.brand = selectedValue ?? "un brand";
+                        ctrl.brand = selectedValue ?? "Un brand";
                         ctrl.update();
                       },
                     )),

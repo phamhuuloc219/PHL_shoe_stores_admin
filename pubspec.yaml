@@ -40,6 +40,9 @@ dependencies:
   get: ^4.6.6
   dropdown_button2: ^2.3.9
   json_annotation: ^4.9.0
+  image_picker: ^1.1.2
+  firebase_storage: ^12.3.5
+  flutter_slidable: ^3.1.1
 
 dev_dependencies:
   flutter_test:
